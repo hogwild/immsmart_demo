@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.79e7e466.css",
-    "main.js": "/static/js/main.98dcaccb.js",
-    "static/js/787.aead5109.chunk.js": "/static/js/787.aead5109.chunk.js",
-    "static/media/new_york_city.webp": "/static/media/new_york_city.f55a5b408445d5877eb1.webp",
-    "static/media/immsmart_logo_24.png": "/static/media/immsmart_logo_24.acc0ebbe76af4339afd5.png",
-    "index.html": "/index.html",
-    "main.79e7e466.css.map": "/static/css/main.79e7e466.css.map",
-    "main.98dcaccb.js.map": "/static/js/main.98dcaccb.js.map",
-    "787.aead5109.chunk.js.map": "/static/js/787.aead5109.chunk.js.map"
+    "main.css": "./static/css/main.bdeac9cc.css",
+    "main.js": "./static/js/main.331d7b7a.js",
+    "static/js/787.aead5109.chunk.js": "./static/js/787.aead5109.chunk.js",
+    "static/media/new_york_city.webp": "./static/media/new_york_city.f55a5b408445d5877eb1.webp",
+    "static/media/immsmart_logo_24.png": "./static/media/immsmart_logo_24.acc0ebbe76af4339afd5.png",
+    "index.html": "./index.html",
+    "main.bdeac9cc.css.map": "./static/css/main.bdeac9cc.css.map",
+    "main.331d7b7a.js.map": "./static/js/main.331d7b7a.js.map",
+    "787.aead5109.chunk.js.map": "./static/js/787.aead5109.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.79e7e466.css",
-    "static/js/main.98dcaccb.js"
+    "static/css/main.bdeac9cc.css",
+    "static/js/main.331d7b7a.js"
   ]
 }
