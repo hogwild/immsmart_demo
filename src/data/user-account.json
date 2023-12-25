@@ -1,0 +1,42 @@
+{
+    "title": "Jack",
+    "subtitle": "Manage your account and settings here.",
+    "cards": [
+        {
+            "title": "个人信息",
+            "link": "/user-personal",
+            "icon": "identity-1",
+            "content": "Provide personal details and how we can reach you"
+        },
+        {
+            "title": "账户安全设置",
+            "link": "/user-security",
+            "icon": "password-1",
+            "content": "Update your password and secure your account"
+        },
+        {
+            "title": "支付和收款设置",
+            "link": "#",
+            "icon": "pay-by-card-1",
+            "content": "Review payments, payouts, coupons, gift cards, and taxes"
+        },
+        {
+            "title": "站内消息",
+            "link": "/user-messages",
+            "icon": "chat-app-1",
+            "content": "Choose notification preferences and how you want to be contacted"
+        },
+        {
+            "title": "交易记录",
+            "link": "user-list",
+            "icon": "diary-1",
+            "content": "Control connected apps, what you share, and who sees it"
+        },
+        {
+            "title": "隐私和偏好设置",
+            "link": "#",
+            "icon": "mix-1",
+            "content": "Set your default language, currency, and timezone"
+        }
+    ]
+}

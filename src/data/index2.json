@@ -1,0 +1,127 @@
+{
+    "hero": {
+        "title": "想要移民加拿大？",
+        "subTitle": "immsmart让持牌移民顾问为你导航",
+        "img": "img/photo/photo-1525610553991-2bede1a236e2.jpg"
+    },
+    "searchOptions": [
+        {
+            "value": "small",
+            "label": "所有服务"
+        },
+        {
+            "value": "medium",
+            "label": "工签"
+        },
+        {
+            "value": "large",
+            "label": "投资移民"
+        },
+        {
+            "value": "x-large",
+            "label": "亲属团聚"
+        },
+        {
+            "value": "x-large",
+            "label": "联邦技术工人移民FWS"
+        },
+        {
+            "value": "x-large",
+            "label": "联邦快速通道EE"
+        }
+    ],
+    "popularCities": {
+        "title": "What's trending",
+        "subTitle": "移民政策解读"
+    },
+    "discover": {
+        "title": "找到最适合的移民顾问",
+        "subTitle": "您只需轻点几下，我们就能帮您",
+        "blocks": [
+            {
+                "title": "1.智能匹配",
+                "content": "在搜索栏输入您感兴趣的移民项目，immsmart 的智能匹配系统会想您推荐最符合您需求的顾问。",
+                "icon": "love-pin-1",
+                "color": "secondary"
+            },
+            {
+                "title": "2.站内短信",
+                "content": "您可以从列表中选择一位顾问，向她/他发送站内信。在初步沟通后，您可以和顾问预约线上会议面谈。",
+                "icon": "pay-by-card-1",
+                "color": "primary"
+            },
+            {
+                "title": "3.线上预约",
+                "content": "immsmart提供Calendly在线预约系统。您可以直接在我们的页面上选择会议时间。同时，我们提供stripe在线支付系统，以及SignNow在线合同签字系统，让您一次操作就能完成合同的签订及付款。",
+                "icon": "food-1",
+                "color": "secondary"
+            },
+            {
+                "title": "4.开始面谈",
+                "content": "在您完成前面的工作后，现在万事俱备。等到了预约的时间，您就可以和持牌顾问面对面交流你的移民计划啦。",
+                "icon": "pay-1",
+                "color": "primary"
+            }
+        ]
+    },
+    "testimonials": {
+        "title": "移民加拿大可以很轻松",
+        "subTitle": "用户评价",
+        "button": "更多用户评价",
+        "buttonLink": "/coming-soon",
+        "swiperItems": [
+            {
+                "title": "Jessica Watson",
+                "content": "我一直想移民去加拿大，但是我不知道该如何开始，直到我发现了immsmart。在immsmart上，我找到了John。他是一个资深的持牌顾问，已经为上百人办理过移民申请。在他的指导下，我只花了三个月就完成了移民申请的递交。",
+                "avatar": "img/avatar/avatar-3.jpg"
+            },
+            {
+                "title": "Jessica Watson",
+                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever",
+                "avatar": "img/avatar/avatar-3.jpg"
+            },
+            {
+                "title": "Jessica Watson",
+                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever",
+                "avatar": "img/avatar/avatar-3.jpg"
+            },
+            {
+                "title": "Jessica Watson",
+                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever",
+                "avatar": "img/avatar/avatar-3.jpg"
+            },
+            {
+                "title": "Jessica Watson",
+                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever",
+                "avatar": "img/avatar/avatar-3.jpg"
+            },
+            {
+                "title": "Jessica Watson",
+                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever",
+                "avatar": "img/avatar/avatar-3.jpg"
+            }
+        ]
+    },
+    "popular": {
+        "title": "客户反馈",
+        "subTitle": "持牌顾问为您保驾护航",
+        "button": "查看所有评论",
+        "buttonLink": "/category-2"
+    },
+    "travel": {
+        "title": "让持牌顾问协助您",
+        "subtitle": "访问我们的数据库",
+        "content": "加拿大持牌移民顾问必须通过加拿大移民、难民和公民部门（Immigration, Refugees and Citizenship Canada，简称IRCC）认证，才能获得移民咨询和服务的许可。持牌移民顾问需要接受培训并通过相关的考试，同时需要遵守道德和职业规范，以确保提供高质量、诚信、专业和合法的移民服务。",
+        "button": "开始搜索",
+        "buttonLink": "/category-3",
+        "img": "photo-1507915135761-41a0a222c709.jpg"
+    },
+    "bottomBlock": {
+        "title": "immsmart为您提供最快捷的咨询通道",
+        "subTitle": "立刻开始吧",
+        "content": "注册用户可享受咨询费折扣",
+        "button": "现在注册",
+        "buttonLink": "#",
+        "small": "It's free!"
+    }
+}

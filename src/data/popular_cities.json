@@ -1,0 +1,31 @@
+{
+    "button": "所有文章",
+    "buttonLink": "/blog",
+    "cities": [
+        {
+            "title": "2024加拿大移民趋势分析",
+            "img": "img/photo/photo-1449034446853-66c86144b0ad.jpg",
+            "link": "/blog/escape-city-today"
+        },
+        {
+            "title": "加拿大学签审批速度更新",
+            "img": "img/photo/photo-1429554429301-1c7d5ae2d42e.jpg",
+            "link": "/blog/autumn-fashion-tips-and-tricks"
+        },
+        {
+            "title": "2024毕业工签可能会这么改",
+            "img": "img/photo/photo-1523430410476-0185cb1f6ff9.jpg",
+            "link": "/blog/best-books-about-photography"
+        },
+        {
+            "title": "什么专业更好找工作？",
+            "img": "img/photo/photo-1505245208761-ba872912fac0.jpg",
+            "link": "/blog/10-free-things-to-do-in-venice"
+        },
+        {
+            "title": "加拿大联邦移民项目的设计理念和申请策略",
+            "img": "img/photo/photo-1519867850-74775a87e783.jpg",
+            "link": "/blog/pellentesque-habitant-morbi"
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+{
+    "consultant": {
+        "name":"Jack London"
+    },
+    "title":"移民服务合同签约须知",
+
+    "numberedBlocks": [
+        {
+            "title": "签约流程",
+            "content": "点击签约按钮后，您需要支付平台服务费。服务费是您合同金额的10%。如果您的服务合同是$5000，那么您需要支付$500的服务费。在支付完服务费之后，浏览器会跳转到签约页面。您可以在该页面上完成签约，并支付服务合同的首付款。"
+        },
+        {
+            "title": "线上签约",
+            "content": "用鼠标或手指点击文件上标注为签名的地方，您即可完成合同签订。"
+        },
+        {
+            "title": "签约后退款",
+            "content": "常规咨询收费标准为 275 加币/30 分钟。如咨询后客户与我司签署后续留学或签证办理协议，咨询费用可以退回。如客户有多次付费咨询，签约后只退回首次咨询费用。具体请见咨询协议中的规定。我司在协议中包含客户信息保密等其他常规条款。"
+        }
+    ],
+
+    "payment":
+    {
+        "title": "Confirm and pay",
+        "subtitle": "Book your holiday home",
+        "badge": "<strong>This home is on people’s minds.</strong> It’s been viewed 43 times in the past week.",
+        "formBlocks": [
+            {
+                "title": "Pay with your card",
+                "type": "paybycard",
+                "name": "payment",
+                "options": [
+                    {
+                        "label": "Visa •••• 5687",
+                        "value": "card_0"
+                    },
+                    {
+                        "label": "Mastercard •••• 4569",
+                        "value": "card_1"
+                    }
+                ],
+                "inputs": [
+                    {
+                        "label": "Name on Card",
+                        "col": "6",
+                        "name": "card-name"
+                    },
+                    {
+                        "label": "Card Number",
+                        "col": "6",
+                        "name": "card-number"
+                    },
+                    {
+                        "label": "Expiry Date",
+                        "col": "4",
+                        "name": "expiry-date",
+                        "placeholder": "MM/YY"
+                    },
+                    {
+                        "label": "CVC/CVV",
+                        "col": "4",
+                        "name": "cvv",
+                        "placeholder": "123"
+                    },
+                    {
+                        "label": "ZIP",
+                        "col": "4",
+                        "name": "zip",
+                        "placeholder": "123"
+                    }
+                ]
+            },
+            {
+                "title": "Cancellation policy",
+                "content": "<p class='text-sm text-muted'>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of .</p><p class='text-sm text-muted'>He must have tried it a hundred times, shut his eyes so that he wouldn't have to look at the flounde.</p>",
+                "type": "policy"
+            }
+        ]
+    }
+}

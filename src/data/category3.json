@@ -1,0 +1,137 @@
+{
+    "title": "顾问列表",
+    "sortby": [
+        {
+            "value": "popular",
+            "label":  "Most popular"
+            
+        },
+        {
+            "value": "recommended",
+            "label":  "Recommended"
+            
+        },
+        {
+            "value": "newest",
+            "label":  "Newest"
+            
+        },
+        {
+            "value": "oldest",
+            "label":  "Oldest"
+            
+        },
+        {
+            "value": "closest",
+            "label":  "Closest"
+            
+        }
+    ],
+    "neighbourhood": [
+        {
+            "value": "0",
+            "label":  "Chinese"
+        },
+        {
+            "value": "1",
+            "label":  "English"
+        },
+        {
+            "value": "2",
+            "label":  "French"
+        },
+        {
+            "value": "3",
+            "label":  "Hindi"
+        },
+        {
+            "value": "4",
+            "label":  "German"
+        }
+    ],
+    "categories": [
+        {
+            "value": "category_0",
+            "label": "工签"
+        },
+        {
+            "value": "category_1",
+            "label": "Express Entry"
+        },
+        {
+            "value": "category_2",
+            "label": "学签"
+        },
+        {
+            "value": "category_3",
+            "label": "SUV"
+        },
+        {
+            "value": "category_4",
+            "label": "投资移民"
+        },
+        {
+            "value": "category_5",
+            "label": "家庭团聚移民"
+        }
+    ],
+    "tags": {
+        "title": "Location",
+        "items": [
+            {
+                "value": "type_0",
+                "label": "多伦多"
+            },
+            {
+                "value": "type_1",
+                "label": "Vancouver"
+            },
+            {
+                "value": "type_2",
+                "label": "Calgary"
+            },
+            {
+                "value": "type_3",
+                "label": "Winnipeg"
+            },
+            {
+                "value": "type_4",
+                "label": "上海"
+            },
+            {
+                "value": "type_5",
+                "label": "New York"
+            }
+        ]
+    },
+    "cuisine": {
+        "title": "Cuisine",
+        "items": [
+            {
+                "value": "cuisine_0",
+                "label": "Fusion"
+            },
+            {
+                "value": "cuisine_1",
+                "label": "Indian"
+            },
+            {
+                "value": "cuisine_2",
+                "label": "French"
+            },
+            {
+                "value": "cuisine_3",
+                "label": "American"
+            },
+            {
+                "value": "cuisine_4",
+                "label": "Mexican"
+            },
+            {
+                "value": "cuisine_5",
+                "label": "Other"
+            }
+        ]
+
+    }
+}
