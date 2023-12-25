@@ -11,13 +11,13 @@
 // }
 
 // const repo = "https://hogwild.github.io/immsmart_demo"
-const repo = "immsmart_demo";
-let assetPrefix = `/${repo}/`;
-let basePath = `/${repo}`;
+// const repo = "immsmart_demo";
+// let assetPrefix = `/${repo}/`;
+// let basePath = `/${repo}`;
 
 const nextConfig = {
-  assetPrefix: assetPrefix,
-  basePath: basePath,
+  // assetPrefix: assetPrefix,
+  // basePath: basePath,
   output: 'export',
   images: {
     deviceSizes: [320, 480, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
