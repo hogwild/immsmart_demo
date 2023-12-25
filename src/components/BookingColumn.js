@@ -99,7 +99,7 @@ const BookingColumn = (props) => {
                 <td className="fw-normal text-end">
                     <Button variant="link" href="/user-invoice" className="text-muted">
                         <FontAwesomeIcon icon={faFile} className="me-2" />
-                          Your invoice
+                          获取发票
                     </Button>
                 </td>
               </tr>

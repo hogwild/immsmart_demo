@@ -48,7 +48,7 @@ const UserBooking3 = () => {
               <BookingForm data={data.steps[2].formBlocks} />
               <Row className="form-block flex-column flex-sm-row">
                 <Col className="text-center text-sm-start">
-                  <Link href="/user-booking-2" passHref legacyBehavior>
+                  <Link href="/user-profile" passHref legacyBehavior>
                     <Button variant="link" className="text-muted">
                       <FontAwesomeIcon icon={faChevronLeft} className="me-2" />
                       Back
@@ -56,7 +56,7 @@ const UserBooking3 = () => {
                   </Link>
                 </Col>
                 <Col className="text-center text-sm-end">
-                  <Link href="/user-list" passHref legacyBehavior>
+                  <Link href="/404" passHref legacyBehavior>
                     <Button className="px-3">
                       完成付款并签约
                       <FontAwesomeIcon icon={faChevronRight} className="ms-2" />
