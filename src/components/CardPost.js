@@ -8,13 +8,23 @@ import { faClock } from "@fortawesome/free-regular-svg-icons"
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons"
 
 const CardPost = (props) => {
-  const post = props.data
+  // const post = props.data
+  const date = new Date(props.data.created_at)
+  const defaultImg = "/content/img/photo/photo-1452561802015-953ab78c4526.jpg"
+  const post = {
+    img:props.data.cover?props.data.cover:defaultImg,
+    slug:props.data.slug,
+    category:props.data.category,
+    title:props.data.title,
+    content:props.data.excerpt,
+    date:date.toDateString().slice(4)
+  }
   return (
     <Card className="border-0 h-100 shadow">
       <Link href={`/blog/${post.slug}`} className="">
 
         <Image
-          src={`/content/${post.img}`}
+          src={post.img}
           alt="..."
           width={1080}
           height={720}

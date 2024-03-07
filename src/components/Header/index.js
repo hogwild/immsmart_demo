@@ -13,6 +13,8 @@ import SearchForm from "./SearchForm"
 import UserMenu from "./UserMenu"
 import DropdownMenuItem from "./DropdownMenuItem"
 import UseWindowSize from "../../hooks/UseWindowSize"
+
+
 const Header = (props) => {
   const [parentName, setParentName] = useState(false)
   const [collapsed, setCollapsed] = useState(false)
@@ -21,6 +23,7 @@ const Header = (props) => {
     size.width < 991 && setCollapsed(!collapsed)
     setParentName(parent)
   }
+  // console.log(props)
   // highlight not only active dropdown item, but also its parent, i.e. dropdown toggle
   const highlightDropdownParent = () => {
     menu.map((item) => {
@@ -147,6 +150,7 @@ const Header = (props) => {
                           passHref
                         >
                           <Nav.Link onClick={() => onLinkClick(item.title)}>
+                          {/* <Nav.Link onClick={() => signIn(undefined, {callbackUrl:"/"})}> */}
                             {item.title}
                           </Nav.Link>
                         </ActiveLink>
@@ -157,7 +161,7 @@ const Header = (props) => {
                   )
                 )}
               {/* USER MENU */}
-              {props.loggedUser && <UserMenu onLinkClick={onLinkClick} />}
+              {props.loggedUser && <UserMenu onLinkClick={onLinkClick} loggedUser={props.loggedUser}/>}
               {/* USER MENU */}
             </Nav>
             {/* END MENU */}

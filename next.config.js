@@ -11,23 +11,39 @@
 // }
 
 // const repo = "https://hogwild.github.io/immsmart_demo"
-// const repo = "immsmart_demo";
+// const repo = "immsmart_demo/out";
 // let assetPrefix = `/${repo}/`;
 // let basePath = `/${repo}`;
+
+
 
 const nextConfig = {
   // assetPrefix: assetPrefix,
   // basePath: basePath,
-  output: 'export',
+  // output: 'export',
   images: {
     deviceSizes: [320, 480, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    loader: "imgix", // Uncomment this line for STATIC EXPORT
-    path: "", // Uncomment this line for STATIC EXPORT
+    // loader: "imgix", // Uncomment this line for STATIC EXPORT
+    // path: "", // Uncomment this line for STATIC EXPORT
+    remotePatterns: [
+      // {
+      //   protocol: 'http',
+      //   hostname: '127.0.0.1',
+      //   port: '8000',
+      //   pathname: '/media/**', //'/media/images/**'
+      // },
+      {
+        protocol: 'https',
+        hostname: 'www.immsmart.com',
+        port: '',
+        pathname: '/media/**', //'/media/images/**'
+      },
+    ],
   },
   env: {
-    production_type: "static", //"server", // Change variable to "static" for STATIC EXPORT
+    production_type: "server", // Change variable to "static" for STATIC EXPORT
   },
-  trailingSlash: true, // Uncomment this line for STATIC EXPORT
+  // trailingSlash: true, // Uncomment this line for STATIC EXPORT
 
   webpack(config) {
     config.module.rules.push({

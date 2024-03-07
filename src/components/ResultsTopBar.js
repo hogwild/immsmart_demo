@@ -7,7 +7,7 @@ const ResultsTopBar = (props) => {
     <div className="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
       <div className="me-3">
         <p className="mb-3 mb-md-0">
-          <strong>12</strong>
+          <strong>{props.nums}</strong>
           &nbsp;results found
         </p>
       </div>

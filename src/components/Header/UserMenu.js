@@ -3,9 +3,36 @@ import { Dropdown, NavLink, NavItem } from "react-bootstrap"
 import ActiveLink from "./../ActiveLink"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons"
-import userMenu from "../../data/user-menu.json"
+// import userMenu from "../../data/user-menu.json"
 import Avatar from "../Avatar"
-export default function UserMenu({ onLinkClick }) {
+import { signOut } from "next-auth/react"
+
+
+export default function UserMenu({ onLinkClick, loggedUser }) {
+  const userMenu = {
+    "img":loggedUser.avatar,
+    "type":loggedUser.avatar?"avatar":"",
+    "title": loggedUser.email,
+    "dropdown": [
+      {
+        "title": "Messages",
+        "link": "/user-messages"
+      },
+      {
+        "title": "My Account",
+        "link": "/user-account"
+      },
+      {
+        "divider": true
+      },
+      {
+        "title": "Sign out",
+        "link": "#", //"/",
+        "signout": true
+      }
+    ]
+  }
+
   return (
     <Dropdown
       as={NavItem}
@@ -13,19 +40,19 @@ export default function UserMenu({ onLinkClick }) {
     >
       <Dropdown.Toggle
         as={NavLink}
-        style={userMenu.type === "avatar" && { padding: 0 }}
+        style={userMenu.type === "avatar" ? { padding: 0 }:{ padding:0 }}
         className="dropdown-avatar"
       >
         {userMenu.type === "avatar" ? (
           <Avatar
-            image={`/content${userMenu.img}`}
+            image={userMenu.img}
             alt={userMenu.title}
             className="me-2 avatar-border-white"
             size="sm"
             cover
           />
         ) : (
-          userMenu.title
+           userMenu.title
         )}
       </Dropdown.Toggle>
       <Dropdown.Menu align="end">
@@ -38,7 +65,7 @@ export default function UserMenu({ onLinkClick }) {
                 href={dropdownItem.link}
                 passHref
               >
-                <Dropdown.Item onClick={() => onLinkClick(userMenu.title)}>
+                <Dropdown.Item onClick={() => dropdownItem.signout?signOut():onLinkClick(userMenu.title)}>
                   {dropdownItem.signout && (
                     <FontAwesomeIcon
                       icon={faSignOutAlt}
@@ -56,3 +83,38 @@ export default function UserMenu({ onLinkClick }) {
     </Dropdown>
   )
 }
+
+//The following code is for loading session then loading data
+// const {data:session, status} = useSession({
+  //   required:true,
+  //   onUnauthenticated(){
+  //     redirect('/login')
+  //   }
+  // })
+  // const [data_all, setData] = useState(null)
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       if(status==="loading"){
+  //         return 
+  //       }
+  //       const pk = session.user.pk
+  //       const token = session.access_token
+  //       const response = await axios({
+  //         url: `http://127.0.0.1:8000/api/users/${pk}/`,
+  //         method: "get",
+  //         headers: {
+  //               "Authorization": 'Bearer '+ token
+  //           },
+  //       })
+  //       setData(response.data)
+  //     }catch(error){
+  //       console.log('Error fetching data:', error)
+  //     }  
+  //   }
+  //   fetchData()
+  // }, [session, status])
+  // if(!data_all){
+  //   return <></>
+  // } 
+  // console.log(data_all)

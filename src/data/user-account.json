@@ -3,7 +3,7 @@
     "subtitle": "Manage your account and settings here.",
     "cards": [
         {
-            "title": "个人信息",
+            "title": "账户设置",
             "link": "/user-personal",
             "icon": "identity-1",
             "content": "Provide personal details and how we can reach you"
@@ -33,10 +33,10 @@
             "content": "Control connected apps, what you share, and who sees it"
         },
         {
-            "title": "隐私和偏好设置",
-            "link": "#",
+            "title": "我的博客",
+            "link": "user-blog-list",
             "icon": "mix-1",
-            "content": "Set your default language, currency, and timezone"
+            "content": "Share your knowledge about Canada and immigration"
         }
     ]
 }

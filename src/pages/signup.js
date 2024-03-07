@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 
 import { Container, Row, Col, Button, Form } from "react-bootstrap"
@@ -6,6 +6,8 @@ import Image from "../components/CustomImage"
 import Icon from "../components/Icon"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faGoogle } from "@fortawesome/free-brands-svg-icons"
+import axios from "axios"
+import { signIn } from "next-auth/react"
 
 export async function getStaticProps() {
   return {
@@ -18,7 +20,43 @@ export async function getStaticProps() {
   }
 }
 
+
+
 const Signup = () => {
+  const [userType, setUserType] = useState(null)
+  const [email, setEmail] = useState(null)
+  const [password1, setPassword1] = useState(null)
+  const [password2, setPassword2] = useState(null)
+  const [error, setError] = useState(null)
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    // console.log("sign up")
+    console.log(email, password1, password2)
+      try {
+      const response = await axios({
+          url: `https://www.immsmart.com/api/user/register/`, // For backend ver2, it is url: `http://127.0.0.1:8000/api/users/register/`,
+          method: "post",
+          data: {
+                user_type: userType,
+                email: email,
+                password1: password1,
+                password2: password2
+              },
+          })
+      
+        // setResponse(response)
+        return response
+        }catch(error){
+        console.log('Error in signning up:', error)
+        setError(error)
+      } 
+      // if(response.status===201){
+      //   signIn("credentials", { email:email, password:password, callbackUrl:"/user-account" })
+      // }
+      // return error
+  }
+
   return (
     <Container fluid className="px-3">
       <Row className="min-vh-100">
@@ -33,12 +71,43 @@ const Signup = () => {
               />
               <h2>Sign up</h2>
               <p className="text-muted">
-                His room, a proper human room although a little too small, lay
-                peacefully between its four familiar walls. A collection of
-                textile samples lay spread out on the table.
+                {error ? "Something wrong with your registration; please check your email and password.":"You can sign up with your email or your social accounts."}
               </p>
             </div>
-            <Form className="form-validate">
+            <Form className="form-validate" onSubmit={(e) => {onSubmit(e).then(
+              (res)=>{
+                try {
+                  if(res.status==201){
+                  signIn("credentials", { email:email, password:password1, callbackUrl:"/user-account" })
+                }}catch(error){
+                  console.log(error)
+                }
+              })
+              }}>
+              <div className="mb-4">
+                {/* <Form.Label htmlFor="loginUsername"></Form.Label> */}
+                <Form.Check
+                  inline
+                  label="我想找顾问"//"I'm looking for a RCIC"
+                  value={"client"}
+                  name="group1"
+                  type={"radio"}
+                  id={`inline-radio-1`}
+                  required
+                 
+                  onChange={(e) => setUserType(e.target.value)}
+                />
+                <Form.Check
+                  inline
+                  label="我是持牌顾问"//"I'm a RCIC"
+                  value={"consultant"}
+                  name="group1"
+                  type={"radio"}
+                  id={`inline-radio-2`}
+                  required
+                  onChange={(e) => setUserType(e.target.value)}
+                />
+              </div>
               <div className="mb-4">
                 <Form.Label htmlFor="loginUsername">Email Address</Form.Label>
                 <Form.Control
@@ -48,6 +117,7 @@ const Signup = () => {
                   placeholder="name@address.com"
                   autoComplete="off"
                   required
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="mb-4">
@@ -55,9 +125,10 @@ const Signup = () => {
                 <Form.Control
                   name="loginPassword"
                   id="loginPassword"
-                  type="email"
+                  type="password"
                   placeholder="Password"
                   required
+                  onChange={(e) => setPassword1(e.target.value)}
                 />
               </div>
               <div className="mb-4">
@@ -67,15 +138,16 @@ const Signup = () => {
                 <Form.Control
                   name="loginPassword2"
                   id="loginPassword2"
-                  type="email"
+                  type="password"
                   placeholder="Password"
                   required
+                  onChange={(e) => setPassword2(e.target.value)}
                 />
               </div>
               <div className="d-grid">
-                <Link href={"/user-account"} passHref legacyBehavior>
-                  <Button size="lg">Sign up</Button>
-                </Link>
+                {/* <Link href={"/user-account"} passHref legacyBehavior> */}
+                  <Button size="lg" type={"submit"}>Sign up</Button>
+                {/* </Link> */}
               </div>
             </Form>
             <hr data-content="OR" className="my-3 hr-text letter-spacing-2" />

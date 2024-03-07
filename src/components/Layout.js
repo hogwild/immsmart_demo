@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import Head from "next/head"
 import NextNProgress from "../components/NextNProgress"
 
@@ -7,22 +7,59 @@ import Footer from "./Footer"
 import { FormProvider } from "../components/FormContext"
 import { BookingProvider } from "../components/BookingContext"
 import SvgIcons from "./SvgIcons"
-import SSRProvider from "react-bootstrap/SSRProvider"
+// import SSRProvider from "react-bootstrap/SSRProvider"
+
+import { useSession } from "next-auth/react"
+import axios from "axios"
+// import { signIn } from "next-auth/react"
+
 
 const Layout = (pageProps) => {
-  const headerProps = {
-    nav: {
-      classes: pageProps.nav && pageProps.nav.classes,
-      fixed: pageProps.nav && pageProps.nav.fixed,
-      color: pageProps.nav && pageProps.nav.color,
-      light: pageProps.nav && pageProps.nav.light,
-      dark: pageProps.nav && pageProps.nav.dark,
-    },
-    loggedUser: pageProps.loggedUser,
-    headerClasses: pageProps.headerClasses,
-  }
+  const {data:session, status} = useSession()
+  const [accountInfo, setAccountInfo] = useState(null)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if(status==="loading"){
+          return "Loading or not authenticated..."
+        }
+        const pk = session.user.pk
+        const token = session.access_token
+        const response = await axios({
+          url: `https://www.immsmart.com/api/user/profile/${pk}/`, //it was ttp://127.0.0.1:8000/api/users/${pk}/ in backend_ver2
+          method: "get",
+          headers: {
+                "Authorization": 'Bearer '+ token
+            },
+        })
+        const info = { email:session.user.email, avatar:response.data.avatar }
+        setAccountInfo(info)
+        // setAccountInfo(response.data)
+      }catch(error){
+        console.log('Error fetching data:', error)
+      }  
+    }
+    fetchData()
+  },[status])
+  // if(!accountInfo){
+  //   return <></>
+  // } 
+  // console.log("data all", accountInfo)
+    console.log(status)
+    const headerProps = {
+      nav: {
+        classes: pageProps.nav && pageProps.nav.classes,
+        fixed: pageProps.nav && pageProps.nav.fixed,
+        color: pageProps.nav && pageProps.nav.color,
+        light: pageProps.nav && pageProps.nav.light,
+        dark: pageProps.nav && pageProps.nav.dark,
+      },
+      loggedUser: status==="authenticated"?accountInfo:false,
+      // resolvedUrl: pageProps.resolvedUrl,
+      headerClasses: pageProps.headerClasses,
+    }
   return (
-    <SSRProvider>
+    // <SSRProvider>
       <div
         style={{ paddingTop: pageProps.noPaddingTop ? "0" : "72px" }}
         className={pageProps.className}
@@ -53,7 +90,7 @@ const Layout = (pageProps) => {
         {!pageProps.hideFooter && <Footer />}
         <SvgIcons />
       </div>
-    </SSRProvider>
+    // </SSRProvider>
   )
 }
 

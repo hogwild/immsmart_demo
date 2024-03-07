@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import { Container, Row, Col, Form, Collapse, Button } from "react-bootstrap"
 
@@ -13,6 +13,7 @@ import data from "../data/category3.json"
 import geoJSON from "../data/restaurants-geojson.json"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilter, faSearch } from "@fortawesome/free-solid-svg-icons"
+import axios from "axios"
 
 export async function getStaticProps() {
   return {
@@ -31,6 +32,28 @@ const Category3 = () => {
   const [filterCollapse, setFilterCollapse] = React.useState(false)
   const [priceMin, setPriceMin] = React.useState(40)
   const [priceMax, setPriceMax] = React.useState(110)
+  const [consultants, setConsultants] = React.useState(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if(!consultants){
+          return "Loading..."
+        }
+        const response = await axios({
+          url: `http://127.0.0.1:8000/api/user/profile/${pk}/`, 
+          method: "get",
+          headers: {
+                "Authorization": 'Bearer '+ token
+            },
+        })
+      }catch(error){
+        console.log('Error fetching data:', error)
+      }  
+    }
+    fetchData()
+  }, [consultants])
+
 
   const priceSlider = (render, handle, value, un, percent) => {
     setPriceMin(value[0].toFixed(0))
@@ -86,6 +109,7 @@ const Category3 = () => {
                   name="category"
                   inputId="form_category"
                   options={data.categories && data.categories}
+                  isMulti
                   className="form-control dropdown bootstrap-select"
                   classNamePrefix="selectpicker"
                 />

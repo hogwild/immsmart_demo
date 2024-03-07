@@ -121,7 +121,7 @@
         "subTitle": "立刻开始吧",
         "content": "注册用户可享受咨询费折扣",
         "button": "现在注册",
-        "buttonLink": "/signup",
+        "buttonLink": "#",
         "small": "It's free!"
     }
 }

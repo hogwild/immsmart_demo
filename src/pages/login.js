@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import Link from "next/link"
 
 import { Container, Row, Col, Button, Form } from "react-bootstrap"
@@ -7,18 +7,54 @@ import Icon from "../components/Icon"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faGoogle } from "@fortawesome/free-brands-svg-icons"
 
-export async function getStaticProps() {
+import { signIn } from "next-auth/react"
+
+
+// export async function getStaticProps() {
+//   return {
+//     props: {
+//       title: "Sign in",
+//       hideHeader: true,
+//       hideFooter: true,
+//       noPaddingTop: true,
+//     },
+//   }
+// }
+
+export async function getServerSideProps(context) {
+  
+  const indexOfReferer = context.req.rawHeaders.indexOf('Referer')
+  const url = context.req.rawHeaders[indexOfReferer+1]
+  const resolvedUrl = url.substring(url.lastIndexOf('3000/')+4)
+  // console.log("resolvedUrl", resolvedUrl)
+
   return {
     props: {
       title: "Sign in",
       hideHeader: true,
       hideFooter: true,
       noPaddingTop: true,
+      resolvedUrl: resolvedUrl,
     },
   }
 }
 
-const Login = () => {
+
+const Login = ({resolvedUrl}) => {
+  // const [callbackUrl, setCallbackUrl] = useState(null)
+  const [email, setEmail] = useState(null)
+  const [password, setPassword] = useState(null)
+
+  console.log("resolvedUrl", resolvedUrl)
+
+
+  let onSubmit = (e) => {
+    e.preventDefault()
+    // console.log(email);
+    // console.log(password);
+    // num_submit += 1
+    signIn("credentials", {email:email, password:password, callbackUrl:resolvedUrl })
+  }
   return (
     <Container fluid className="px-3">
       <Row className="min-vh-100">
@@ -35,7 +71,7 @@ const Login = () => {
               />
               <h2>Welcome back</h2>
             </div>
-            <Form className="form-validate">
+            <Form className="form-validate" onSubmit={onSubmit}>
               <div className="mb-4">
                 <Form.Label htmlFor="loginUsername">Email Address</Form.Label>
                 <Form.Control
@@ -45,6 +81,7 @@ const Login = () => {
                   placeholder="name@address.com"
                   autoComplete="off"
                   required
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="mb-4">
@@ -61,9 +98,10 @@ const Login = () => {
                 <Form.Control
                   name="loginPassword"
                   id="loginPassword"
-                  type="email"
+                  type="password"
                   placeholder="Password"
                   required
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="mb-4">
@@ -78,9 +116,10 @@ const Login = () => {
                 />
               </div>
               <div className="d-grid">
-               <Link href={"/user-account"} passHref legacyBehavior>
+               {/* <Link href={"/user-account"} passHref legacyBehavior>
                   <Button size="lg">Sign in</Button>
-                </Link>
+                </Link> */}
+                  <Button size="lg" type={'submit'}>Sign in</Button>
               </div>
             </Form>
             <hr data-content="OR" className="my-3 hr-text letter-spacing-2" />

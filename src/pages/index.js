@@ -3,20 +3,29 @@ import Link from "next/link"
 
 import { Container, Row, Col, Button } from "react-bootstrap"
 
-import Swiper from "../components/Swiper"
+// import Swiper from "../components/Swiper"
 import SwiperTestimonial from "../components/SwiperTestimonial"
 
 import SearchBar from "../components/SearchBar"
-import PopularCities from "../components/PopularCities"
+import LatestNews from "../components/LatestNews"
 import Discover from "../components/Discover"
 import Instagram from "../components/Instagram"
 import Brands from "../components/Brands"
 
 import data from "../data/index2.json"
-import geoJSON from "../data/restaurants-geojson.json"
+// import geoJSON from "../data/restaurants-geojson.json"
 import Image from "../components/CustomImage"
+// import { useSession } from "next-auth/react"
+import  axios  from "axios"
 
 export async function getStaticProps() {
+  const response = await axios({
+                // url:`http://127.0.0.1:8000/api/blog/news/`,
+                url:"https://www.immsmart.com/api/blog/news/",
+                method: "get",
+                headers:'application/json'
+            })
+  const news = response.data
   return {
     props: {
       nav: {
@@ -25,11 +34,23 @@ export async function getStaticProps() {
         color: "white",
       },
       title: "immsmart",
+      news:news.results,
     },
+    revalidate: 600, //rebuild (update) the page every 600 seconds; 
   }
 }
 
-const Index2 = () => {
+
+
+
+const Index2 = ({news}) => {
+  // const {data:session, status} = useSession()
+  // set default cover if no cover provided
+  // console.log("news", news)
+  news.forEach(element => {
+    element.cover = element.cover?element.cover:"/content/img/photo/photo-1505245208761-ba872912fac0.jpg"
+  });
+
   return (
     <React.Fragment>
       {data.hero && (
@@ -64,9 +85,10 @@ const Index2 = () => {
         />
       </Container>
       {data.popularCities && (
-        <PopularCities
+        <LatestNews
           title={data.popularCities.title}
           subTitle={data.popularCities.subTitle}
+          news={news}
         />
       )}
       {data.discover && (
@@ -80,7 +102,7 @@ const Index2 = () => {
 
       {data.testimonials && (
         <section className="py-6 bg-gray-100">
-        <Container>
+          <Container>
             <div className="text-center pb-lg-4">
               <p className="subtitle text-secondary">{data.testimonials.subTitle}</p>
               <h2 className="mb-5">{data.testimonials.title}</h2>
@@ -97,39 +119,6 @@ const Index2 = () => {
         </section>
       )}
 
-      {/* {data.popular && (
-        <section className="py-6 bg-gray-100">
-          <Container>
-            <div className="text-center pb-lg-4">
-              <p className="subtitle text-secondary">{data.popular.subTitle}</p>
-              <h2 className="mb-5">{data.popular.title}</h2>
-            </div>
-          </Container>
-          <Container fluid>
-            <Swiper
-              className="swiper-container-mx-negative items-slider-full px-lg-5 pt-3 pb-5"
-              perView={1}
-              spaceBetween={20}
-              loop
-              roundLengths
-              md={2}
-              lg={3}
-              xl={4}
-              xxl={5}
-              xxxl={6}
-              data={geoJSON.features}
-              restaurantCards
-              pagination
-            />
-
-            <div className="text-center mt-5">
-              <Link href={data.popular.buttonLink} passHref legacyBehavior>
-                <Button variant="outline-primary">{data.popular.button}</Button>
-              </Link>
-            </div>
-          </Container>
-        </section>
-      )} */}
       {data.travel && (
         <section className="py-6 py-lg-7 position-relative dark-overlay">
           <Image
@@ -195,3 +184,44 @@ const Index2 = () => {
 }
 
 export default Index2
+
+// export async function getServerSideProps(context) {
+//   const session = await getServerSession(context.req, context.res, authOptions)
+//   console.log("session", session)
+//   console.log('context', context.resolvedUrl)
+//   if (!session) {
+//     return {
+//       props: {
+//         nav: {
+//           light: true,
+//           classes: "shadow",
+//           color: "white",
+//         },
+//         title: "immsmart",
+//         resolvedUrl: context.resolvedUrl,
+//       },
+//     }
+//   }
+//   const pk = session.user.pk
+//   const token = session.access_token
+//   const response = await axios({
+//     url: `http://127.0.0.1:8000/api/users/${pk}/`,
+//     method: "get",
+//     headers: {
+//           "Authorization": 'Bearer '+ token
+//       },
+//   });
+//   const profile = response.data;
+//   return {
+//     props: {
+//       nav: {
+//         light: true,
+//         classes: "shadow",
+//         color: "white",
+//       },
+//       title: "immsmart",
+//       // loggedUser: profile,
+//       resolvedUrl: context.resolvedUrl,
+//     }
+//   }
+// }
