@@ -43,6 +43,8 @@ const Layout = (pageProps) => {
           url: `https://www.immsmart.com/api/user/profile/${pk}/`, //it was http://127.0.0.1:8000/api/users/${pk}/ in backend_ver2
           method: "get",
           headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
                     "Content-Type": 'application/json',
                     "Authorization": 'Bearer '+ token,
                   }
