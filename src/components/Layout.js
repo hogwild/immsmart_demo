@@ -41,11 +41,12 @@ const Layout = (pageProps) => {
     }
     fetchData()
   },[status])
-  // if(!accountInfo){
-  //   return <></>
-  // } 
+  console.log("status", status)
+  if(!accountInfo){
+    return <></>
+  } 
   // console.log("data all", accountInfo)
-    console.log(status)
+    
     const headerProps = {
       nav: {
         classes: pageProps.nav && pageProps.nav.classes,
@@ -58,7 +59,7 @@ const Layout = (pageProps) => {
       // resolvedUrl: pageProps.resolvedUrl,
       headerClasses: pageProps.headerClasses,
     }
-    console.log(headerProps);
+    console.log("headerProps", headerProps);
   return (
     // <SSRProvider>
       <div
