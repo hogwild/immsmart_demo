@@ -42,9 +42,9 @@ const Layout = (pageProps) => {
     fetchData()
   },[status])
   console.log("status", status)
-  if(!accountInfo){
-    return <></>
-  } 
+  // if(!accountInfo){
+  //   return <></>
+  // } 
   // console.log("data all", accountInfo)
     
     const headerProps = {
