@@ -47,7 +47,7 @@ const Layout = (pageProps) => {
             },
         })
         const info = { email:session.user.email, avatar:response.data.avatar }
-        setAccountInfo(info)
+        
         // headerProps.loggedUser = accountInfo
         // setAccountInfo(response.data)
         // setHeaderProps({
@@ -62,11 +62,12 @@ const Layout = (pageProps) => {
         //                 // resolvedUrl: pageProps.resolvedUrl,
         //                 headerClasses: pageProps.headerClasses,
         //               })
+        return info
       }catch(error){
         console.log('Error fetching data:', error)
       }  
     }
-    fetchData()
+    fetchData().then(info => setAccountInfo(info))
   },[status])
   console.log("status", status, accountInfo)
   // if(!accountInfo){
