@@ -23,9 +23,9 @@ import { signIn } from "next-auth/react"
 
 export async function getServerSideProps(context) {
   
-  const indexOfReferer = context.req.rawHeaders.indexOf('Referer')
-  const url = context.req.rawHeaders[indexOfReferer+1]
-  const resolvedUrl = url //.substring(url.lastIndexOf('vercel.app/')+10)
+  // const indexOfReferer = context.req.rawHeaders.indexOf('Referer')
+  // const url = context.req.rawHeaders[indexOfReferer+1]
+  // const resolvedUrl = url //.substring(url.lastIndexOf('vercel.app/')+10)
   // console.log("resolvedUrl", resolvedUrl)
 
   return {
@@ -34,7 +34,7 @@ export async function getServerSideProps(context) {
       hideHeader: true,
       hideFooter: true,
       noPaddingTop: true,
-      resolvedUrl: context.req.rawHeaders
+      resolvedUrl: context.req.headers.referer, //context.req.rawHeaders[13]
     },
   }
 }
