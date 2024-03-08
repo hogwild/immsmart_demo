@@ -42,7 +42,10 @@ const Layout = (pageProps) => {
         const response = await axios({
           url: `https://www.immsmart.com/api/user/profile/${pk}/`, //it was http://127.0.0.1:8000/api/users/${pk}/ in backend_ver2
           method: "get",
-          headers:  'application/json',
+          headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": 'Bearer '+ token,
+                  }
         })
         const info = { email:session.user.email, avatar:response.data.avatar }
         
