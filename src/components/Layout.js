@@ -16,8 +16,8 @@ import axios from "axios"
 
 const Layout = (pageProps) => {
   const {data:session, status} = useSession()
-  const [accountInfo, setAccountInfo] = useState(null)
-  const headerProps = {
+  // const [accountInfo, setAccountInfo] = useState(null)
+  const initHeaderProps = {
     nav: {
       classes: pageProps.nav && pageProps.nav.classes,
       fixed: pageProps.nav && pageProps.nav.fixed,
@@ -25,10 +25,12 @@ const Layout = (pageProps) => {
       light: pageProps.nav && pageProps.nav.light,
       dark: pageProps.nav && pageProps.nav.dark,
     },
-    loggedUser: status==="authenticated"?accountInfo:false,
+    loggedUser: false,
     // resolvedUrl: pageProps.resolvedUrl,
     headerClasses: pageProps.headerClasses,
   }
+  const [headerProps, setHeaderProps] = useState(initHeaderProps)
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -45,9 +47,21 @@ const Layout = (pageProps) => {
             },
         })
         const info = { email:session.user.email, avatar:response.data.avatar }
-        setAccountInfo(info)
-        headerProps.loggedUser = accountInfo
+        // setAccountInfo(info)
+        // headerProps.loggedUser = accountInfo
         // setAccountInfo(response.data)
+        setHeaderProps({
+                        nav: {
+                          classes: pageProps.nav && pageProps.nav.classes,
+                          fixed: pageProps.nav && pageProps.nav.fixed,
+                          color: pageProps.nav && pageProps.nav.color,
+                          light: pageProps.nav && pageProps.nav.light,
+                          dark: pageProps.nav && pageProps.nav.dark,
+                        },
+                        loggedUser: info,
+                        // resolvedUrl: pageProps.resolvedUrl,
+                        headerClasses: pageProps.headerClasses,
+                      })
       }catch(error){
         console.log('Error fetching data:', error)
       }  
@@ -72,7 +86,7 @@ const Layout = (pageProps) => {
     //   // resolvedUrl: pageProps.resolvedUrl,
     //   headerClasses: pageProps.headerClasses,
     // }
-    console.log("headerProps", headerProps);
+  console.log("headerProps", headerProps);
   return (
     // <SSRProvider>
       <div
