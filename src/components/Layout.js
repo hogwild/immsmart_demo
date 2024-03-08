@@ -16,7 +16,7 @@ import axios from "axios"
 
 const Layout = (pageProps) => {
   const {data:session, status} = useSession()
-  // const [accountInfo, setAccountInfo] = useState(null)
+  const [accountInfo, setAccountInfo] = useState(null)
   const initHeaderProps = {
     nav: {
       classes: pageProps.nav && pageProps.nav.classes,
@@ -47,7 +47,7 @@ const Layout = (pageProps) => {
             },
         })
         const info = { email:session.user.email, avatar:response.data.avatar }
-        // setAccountInfo(info)
+        setAccountInfo(info)
         // headerProps.loggedUser = accountInfo
         // setAccountInfo(response.data)
         setHeaderProps({
@@ -58,7 +58,7 @@ const Layout = (pageProps) => {
                           light: pageProps.nav && pageProps.nav.light,
                           dark: pageProps.nav && pageProps.nav.dark,
                         },
-                        loggedUser: info,
+                        loggedUser: accountInfo,
                         // resolvedUrl: pageProps.resolvedUrl,
                         headerClasses: pageProps.headerClasses,
                       })
@@ -68,7 +68,7 @@ const Layout = (pageProps) => {
     }
     fetchData()
   },[status])
-  console.log("status", status)
+  console.log("status", status, accountInfo)
   // if(!accountInfo){
   //   return <></>
   // } 
