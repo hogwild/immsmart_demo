@@ -203,7 +203,7 @@ const UserPersonal = () => {
 
     e.preventDefault()
     const response = await axios({
-      url: `http://127.0.0.1:8000/api/user/profile/${accountInfo.pk}/`, 
+      url: `https://www.immsmart.com/api/user/profile/${accountInfo.pk}/`, 
       method: "put",
       headers:{
             "Authorization": 'Bearer ' + accountInfo.token,
