@@ -25,7 +25,7 @@ export async function getServerSideProps(context) {
   
   const indexOfReferer = context.req.rawHeaders.indexOf('Referer')
   const url = context.req.rawHeaders[indexOfReferer+1]
-  const resolvedUrl = url.substring(url.lastIndexOf('3000/')+4)
+  const resolvedUrl = url.substring(url.lastIndexOf('vercel.app/')+10)
   // console.log("resolvedUrl", resolvedUrl)
 
   return {
