@@ -26,7 +26,7 @@ const Layout = (pageProps) => {
         const pk = session.user.pk
         const token = session.access_token
         const response = await axios({
-          url: `https://www.immsmart.com/api/user/profile/${pk}/`, //it was ttp://127.0.0.1:8000/api/users/${pk}/ in backend_ver2
+          url: `https://www.immsmart.com/api/user/profile/${pk}/`, //it was http://127.0.0.1:8000/api/users/${pk}/ in backend_ver2
           method: "get",
           headers: {
                 "Authorization": 'Bearer '+ token
@@ -58,6 +58,7 @@ const Layout = (pageProps) => {
       // resolvedUrl: pageProps.resolvedUrl,
       headerClasses: pageProps.headerClasses,
     }
+    console.log(headerProps);
   return (
     // <SSRProvider>
       <div
