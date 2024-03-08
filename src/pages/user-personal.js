@@ -180,7 +180,7 @@ const UserPersonal = () => {
     }
 
     const response = await axios({
-      url: `http://127.0.0.1:8000/api/user/profile/${accountInfo.pk}/`, 
+      url: `https://www.immsmart.com/api/user/profile/${accountInfo.pk}/`, 
       method: "put",
       headers:{
             "Authorization": 'Bearer ' + accountInfo.token,
@@ -226,7 +226,7 @@ const UserPersonal = () => {
   const change_password = async (e) => {
     e.preventDefault()
     const response = await axios({
-      url: `http://127.0.0.1:8000/api/user/password/change/`, 
+      url: `https://www.immsmart.com/api/user/password/change/`, 
       method: "post",
       headers:{
             "Content-Type": "application/json",
