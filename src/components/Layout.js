@@ -17,6 +17,18 @@ import axios from "axios"
 const Layout = (pageProps) => {
   const {data:session, status} = useSession()
   const [accountInfo, setAccountInfo] = useState(null)
+  const headerProps = {
+    nav: {
+      classes: pageProps.nav && pageProps.nav.classes,
+      fixed: pageProps.nav && pageProps.nav.fixed,
+      color: pageProps.nav && pageProps.nav.color,
+      light: pageProps.nav && pageProps.nav.light,
+      dark: pageProps.nav && pageProps.nav.dark,
+    },
+    loggedUser: status==="authenticated"?accountInfo:false,
+    // resolvedUrl: pageProps.resolvedUrl,
+    headerClasses: pageProps.headerClasses,
+  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -34,6 +46,7 @@ const Layout = (pageProps) => {
         })
         const info = { email:session.user.email, avatar:response.data.avatar }
         setAccountInfo(info)
+        headerProps.loggedUser = accountInfo
         // setAccountInfo(response.data)
       }catch(error){
         console.log('Error fetching data:', error)
@@ -47,18 +60,18 @@ const Layout = (pageProps) => {
   // } 
   // console.log("data all", accountInfo)
     
-    const headerProps = {
-      nav: {
-        classes: pageProps.nav && pageProps.nav.classes,
-        fixed: pageProps.nav && pageProps.nav.fixed,
-        color: pageProps.nav && pageProps.nav.color,
-        light: pageProps.nav && pageProps.nav.light,
-        dark: pageProps.nav && pageProps.nav.dark,
-      },
-      loggedUser: status==="authenticated"?accountInfo:false,
-      // resolvedUrl: pageProps.resolvedUrl,
-      headerClasses: pageProps.headerClasses,
-    }
+    // const headerProps = {
+    //   nav: {
+    //     classes: pageProps.nav && pageProps.nav.classes,
+    //     fixed: pageProps.nav && pageProps.nav.fixed,
+    //     color: pageProps.nav && pageProps.nav.color,
+    //     light: pageProps.nav && pageProps.nav.light,
+    //     dark: pageProps.nav && pageProps.nav.dark,
+    //   },
+    //   loggedUser: status==="authenticated"?accountInfo:false,
+    //   // resolvedUrl: pageProps.resolvedUrl,
+    //   headerClasses: pageProps.headerClasses,
+    // }
     console.log("headerProps", headerProps);
   return (
     // <SSRProvider>
