@@ -34,7 +34,7 @@ export async function getServerSideProps(context) {
       hideHeader: true,
       hideFooter: true,
       noPaddingTop: true,
-      resolvedUrl: context.req.rawHeaders
+      resolvedUrl: context
     },
   }
 }
