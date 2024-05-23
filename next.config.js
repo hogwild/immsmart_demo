@@ -32,9 +32,15 @@ const nextConfig = {
       //   port: '8000',
       //   pathname: '/media/**', //'/media/images/**'
       // },
+      // {
+      //   protocol: 'https',
+      //   hostname: 'www.immsmart.com',
+      //   port: '',
+      //   pathname: '/media/**', //'/media/images/**'
+      // },
       {
         protocol: 'https',
-        hostname: 'www.immsmart.com',
+        hostname: 'www.immsmart.net',
         port: '',
         pathname: '/media/**', //'/media/images/**'
       },
