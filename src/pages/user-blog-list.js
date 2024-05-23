@@ -49,7 +49,8 @@ const UserBlogList = () => {
         const pk = session.user.pk
         const token = session.access_token
         const response = await axios({
-          url: `https://www.immsmart.com/api/user/profile/${pk}/`, 
+          // url: `https://www.immsmart.com/api/user/profile/${pk}/`,
+          url: `https://www.immsmart.net/api/user/profile/${pk}/`, 
           method: "get",
           headers: {
                 "Authorization": 'Bearer '+ token
@@ -77,7 +78,8 @@ const UserBlogList = () => {
   const add_post = async () => {
     try {
       const response = await axios({
-        url: `https://www.immsmart.com/api/blog/add/`, 
+        // url: `https://www.immsmart.com/api/blog/add/`, 
+        url: `https://www.immsmart.net/api/blog/add/`, 
         method: "get",
         headers: {
               "Authorization": 'Bearer '+ accountInfo.token

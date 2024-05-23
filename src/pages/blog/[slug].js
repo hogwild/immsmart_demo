@@ -35,7 +35,8 @@ export function getPostData(posts, slug) {
 
 export async function getStaticPaths() {
   const response = await axios({
-    url:`https://www.immsmart.com/api/blog/all/`,
+    // url:`https://www.immsmart.com/api/blog/all/`,
+    url:`https://www.immsmart.net/api/blog/all/`,
     method: "get",
     headers:'application/json'
   })
@@ -48,7 +49,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const response = await axios({
-    url:`https://www.immsmart.com/api/blog/all/`,
+    // url:`https://www.immsmart.com/api/blog/all/`,
+    url:`https://www.immsmart.net/api/blog/all/`,
     method: "get",
     headers:'application/json'
   })
@@ -56,13 +58,15 @@ export async function getStaticProps({ params }) {
   
   const postData = getPostData(posts.results, params.slug)
   const authorInfo = await axios({
-    url:`https://www.immsmart.com/api/user/profile/${postData.author}`,
+    // url:`https://www.immsmart.com/api/user/profile/${postData.author}`,
+    url:`https://www.immsmart.net/api/user/profile/${postData.author}`,
     method:"get",
     headers:'application/json'
   })
 
   const comments = await axios({
-    url:`https://www.immsmart.com/api/blog/comment/all/${postData.id}`,
+    // url:`https://www.immsmart.com/api/blog/comment/all/${postData.id}`,
+    url:`https://www.immsmart.net/api/blog/comment/all/${postData.id}`,
     method:"get",
     headers:'application/json'
   })
@@ -125,7 +129,8 @@ const Product = ({ postData, author, comments }) => {
       try{
         if(newInput){
           const response = await axios({
-            url: `https://www.immsmart.com/api/blog/comment/reply/add/${comment_id}/`, 
+            // url: `https://www.immsmart.com/api/blog/comment/reply/add/${comment_id}/`, 
+            url: `https://www.immsmart.net/api/blog/comment/reply/add/${comment_id}/`, 
             method: "post",
             headers: {
                   "Authorization": 'Bearer '+ session.access_token
@@ -157,7 +162,8 @@ const Product = ({ postData, author, comments }) => {
       try{
         if(newInput){
           const response = await axios({
-            url: `https://www.immsmart.com/api/blog/comment/add/${postData.id}/`, 
+            // url: `https://www.immsmart.com/api/blog/comment/add/${postData.id}/`, 
+            url: `https://www.immsmart.net/api/blog/comment/add/${postData.id}/`,
             method: "post",
             headers: {
                   "Authorization": 'Bearer '+ session.access_token
@@ -260,7 +266,7 @@ const Product = ({ postData, author, comments }) => {
                   {comments.results.map((comment, index) => (
                     <div key={index} className="d-flex mb-4">
                       <Avatar
-                        image={comment.avator?"https://www.immsmart.com"+comment.avator:'/content/img/avatar/avatar-9.jpg'}
+                        image={comment.avator?"https://www.immsmart.net"+comment.avator:'/content/img/avatar/avatar-9.jpg'}
                         alt={comment.email}
                         size="lg"
                         className="me-4 flex-shrink-0"
@@ -276,7 +282,7 @@ const Product = ({ postData, author, comments }) => {
                         {comment.replies.length>0 && comment.replies.map((reply, index) => (
                           <div key={"reply"+index} className="d-flex mb-4">
                             <Avatar
-                              image={reply.avator?"https://www.immsmart.com"+reply.avator:'/content/img/avatar/avatar-9.jpg'}
+                              image={reply.avator?"https://www.immsmart.net"+reply.avator:'/content/img/avatar/avatar-9.jpg'}
                               alt={reply.email}
                               size="lg"
                               className="me-4 flex-shrink-0"

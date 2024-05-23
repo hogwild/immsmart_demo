@@ -23,7 +23,8 @@ import axios from "axios"
 export async function getStaticProps() {
   // const { page } = context
   const blogs = await axios({
-    url:`https://www.immsmart.com/api/blog/all/pagination/`,
+    // url:`https://www.immsmart.com/api/blog/all/pagination/`,
+    url:`https://www.immsmart.net/api/blog/all/pagination/`,
     method: "get",
     headers:'application/json'
 })
@@ -105,7 +106,7 @@ const Blog = ({ postData }) => {
     setPage(posts.previous)
   }
 
-  console.log(posts)
+  // console.log(posts)
   // console.log("loading page", page)
   // const featuredPost = data.posts[0]
   if(!posts){

@@ -35,7 +35,8 @@ const Signup = () => {
     console.log(email, password1, password2)
       try {
       const response = await axios({
-          url: `https://www.immsmart.com/api/user/register/`, // For backend ver2, it is url: `http://127.0.0.1:8000/api/users/register/`,
+          // url: `https://www.immsmart.com/api/user/register/`, // For backend ver2, it is url: `http://127.0.0.1:8000/api/users/register/`,
+          url: `https://www.immsmart.net/api/user/register/`, 
           method: "post",
           data: {
                 user_type: userType,

@@ -87,7 +87,8 @@ class MyUploadAdapter {
   this.id = blogId;
   //console.log("in the adapter", this.token, props);
   // URL where to send files.
-  this.url = "https://www.immsmart.com/api/blog/saved_images/";
+  // this.url = "https://www.immsmart.com/api/blog/saved_images/";
+  this.url = "https://www.immsmart.net/api/blog/saved_images/";
   }
   
   // Starts the upload process.

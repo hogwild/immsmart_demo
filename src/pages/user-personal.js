@@ -83,7 +83,8 @@ const UserPersonal = () => {
         const pk = session.user.pk
         const token = session.access_token
         const response = await axios({
-          url: `https://www.immsmart.com/api/user/profile/${pk}/`, 
+          // url: `https://www.immsmart.com/api/user/profile/${pk}/`, 
+          url: `https://www.immsmart.net/api/user/profile/${pk}/`, 
           method: "get",
           headers: {
                 "Authorization": 'Bearer '+ token
@@ -180,7 +181,8 @@ const UserPersonal = () => {
     }
 
     const response = await axios({
-      url: `https://www.immsmart.com/api/user/profile/${accountInfo.pk}/`, 
+      // url: `https://www.immsmart.com/api/user/profile/${accountInfo.pk}/`, 
+      url: `https://www.immsmart.net/api/user/profile/${accountInfo.pk}/`, 
       method: "put",
       headers:{
             "Authorization": 'Bearer ' + accountInfo.token,
@@ -203,7 +205,8 @@ const UserPersonal = () => {
 
     e.preventDefault()
     const response = await axios({
-      url: `https://www.immsmart.com/api/user/profile/${accountInfo.pk}/`, 
+      // url: `https://www.immsmart.com/api/user/profile/${accountInfo.pk}/`, 
+      url: `https://www.immsmart.net/api/user/profile/${accountInfo.pk}/`, 
       method: "put",
       headers:{
             "Authorization": 'Bearer ' + accountInfo.token,
@@ -226,7 +229,8 @@ const UserPersonal = () => {
   const change_password = async (e) => {
     e.preventDefault()
     const response = await axios({
-      url: `https://www.immsmart.com/api/user/password/change/`, 
+      // url: `https://www.immsmart.com/api/user/password/change/`, 
+      url: `https://www.immsmart.net/api/user/password/change/`, 
       method: "post",
       headers:{
             "Content-Type": "application/json",

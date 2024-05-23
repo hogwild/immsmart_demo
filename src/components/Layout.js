@@ -40,7 +40,8 @@ const Layout = (pageProps) => {
         const pk = session.user.pk
         const token = session.access_token
         const response = await axios({
-          url: `https://www.immsmart.com/api/user/profile/${pk}/`, //it was http://127.0.0.1:8000/api/users/${pk}/ in backend_ver2
+          // url: `https://www.immsmart.com/api/user/profile/${pk}/`, //it was http://127.0.0.1:8000/api/users/${pk}/ in backend_ver2
+          url: `https://www.immsmart.net/api/user/profile/${pk}/`,
           method: "get",
           headers: {
                     "Content-Type": 'application/json',

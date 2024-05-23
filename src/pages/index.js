@@ -21,7 +21,8 @@ import  axios  from "axios"
 export async function getStaticProps() {
   const response = await axios({
                 // url:`http://127.0.0.1:8000/api/blog/news/`,
-                url:"https://www.immsmart.com/api/blog/news/",
+                // url:"https://www.immsmart.com/api/blog/news/",
+                url:'https://www.immsmart.net/api/blog/news/',
                 method: "get",
                 headers:'application/json'
             })

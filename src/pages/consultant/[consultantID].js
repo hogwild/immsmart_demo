@@ -40,7 +40,8 @@ export function getConsultantData(consultants, consultantID) {
 
 export async function getStaticPaths() {
   const response = await axios({
-    url:`https://www.immsmart.com/api/user/consultant-list/null/null/null/null/`,
+    // url:`https://www.immsmart.com/api/user/consultant-list/null/null/null/null/`,
+    url:`https://www.immsmart.net/api/user/consultant-list/null/null/null/null/`,
     method: "get",
     headers:'application/json'
   })
@@ -54,7 +55,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {
   const response = await axios({
-    url:`https://www.immsmart.com/api/user/consultant-list/null/null/null/null/`,
+    // url:`https://www.immsmart.com/api/user/consultant-list/null/null/null/null/`,
+    url:`https://www.immsmart.net/api/user/consultant-list/null/null/null/null/`,
     method: "get",
     headers:'application/json'
   })
@@ -63,14 +65,16 @@ export async function getStaticProps({params}) {
   const consultant = getConsultantData(consultants.results, params.consultantID)
 
   const user = await axios({
-    url:`https://www.immsmart.com/api/user/${consultant.user}/`,
+    // url:`https://www.immsmart.com/api/user/${consultant.user}/`,
+    url:`https://www.immsmart.net/api/user/${consultant.user}/`,
     method: "get",
     headers: "application/json"
   })
   const email = user.data.email
 
   const allBlogs = await axios({
-    url:`https://www.immsmart.com/api/blog/user/${consultant.user}/nodraft/`,
+    // url:`https://www.immsmart.com/api/blog/user/${consultant.user}/nodraft/`,
+    url:`https://www.immsmart.net/api/blog/user/${consultant.user}/nodraft/`,
     method: "get",
     headers: "application/json"
   })

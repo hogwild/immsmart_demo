@@ -20,7 +20,8 @@ import CardConsultant from "../components/CardConsultant"
 
 export async function getStaticProps() {
     const response = await axios({
-        url:`https://www.immsmart.com/api/user/consultant-list/null/null/null/null/`,
+        // url:`https://www.immsmart.com/api/user/consultant-list/null/null/null/null/`,
+        url:`https://www.immsmart.net/api/user/consultant-list/null/null/null/null/`,
         method: "get",
         headers:'application/json'
     })
@@ -93,7 +94,8 @@ const ConsultantList = ({allConsultants}) => {
     const fetchData = async () => {
         try {
           const response = await axios({
-            url: `https://www.immsmart.com/api/user/consultant-list/${name}/${country}/${language}/${service}/`, 
+            // url: `https://www.immsmart.com/api/user/consultant-list/${name}/${country}/${language}/${service}/`, 
+            url: `https://www.immsmart.net/api/user/consultant-list/${name}/${country}/${language}/${service}/`, 
             method: "get",
             headers: {
                   "Content-Type": "application/json",
